@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,16 +10,26 @@
     <link rel="stylesheet" href="style.min.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <main>
         <h1>
             パスワード生成ツール
         </h1>
 
-        <form name = "inputs" class="inputs">
+        <form name="inputs" class="inputs">
+            <dl>
+                <dt>
+                    除外する文字 (半角カンマ区切り)
+                </dt>
+                <dd>
+                    <input type="text" name="text" id="excludeText">
+                </dd>
+            </dl>
             <button id="generateButton">パスワードを生成する</button>
         </form>
         <ul class="passwordList" id="passwordList"></ul>
     </main>
 </body>
+
 </html>
