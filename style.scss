@@ -9,82 +9,130 @@ $breakPoint: 768px;
 }
 @mixin mediaPc {
     @media screen and (min-width: $breakPoint + 1px) {
-        @content
+        @content;
     }
-    
 }
 
-@mixin inputStyle{
+@mixin inputStyle {
     font-size: 20px;
     padding: 7px;
 }
 
-
-*,*::before, *::after{
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-body{
+body {
     color: #333;
 }
 
-a{
+a {
     color: #333;
     text-decoration: none;
 }
 
-main{
+#modal-1 {
+    display: none;
+}
+#modal-1.is-open {
+    display: block;
+}
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal__container {
+    background-color: #fff;
+    padding: 30px;
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 500px;
+    border-radius: 4px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.modal__close {
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    padding: 12px;
+    margin: 16px auto 0;
+    padding-left: auto;
+    background: #4caf50;
+    color: white;
+}
+main {
     max-width: 1000px;
     width: 100%;
     margin: 50px auto;
     padding: 10px;
-    h1{
+    h1 {
         font-size: 30px;
         font-weight: bold;
         margin-bottom: 0.5em;
     }
 
-    .inputs{
+    .inputs {
         background-color: #eee;
         padding: 20px;
         margin-bottom: 50px;
-        dl{
+        dl {
             font-style: 18px;
-            dt{
+            dt {
                 font-weight: bold;
                 margin-bottom: 0.5em;
+                &:not(:first-of-type) {
+                    margin-top: 30px;
+                }
             }
-            dd{
-                input{
-                    @include inputStyle
+            dd {
+                label {
+                    &:not(:last-of-type) {
+                        margin-right: 30px;
+                    }
+                }
+                input {
+                    @include inputStyle;
                 }
             }
         }
-        button{
+        button {
             display: block;
-            color:#fff;
+            color: #fff;
             font-weight: bold;
             background-color: #16f;
             box-shadow: 0 3px darken($color: #16f, $amount: 30%);
             font-size: 18px;
-            border:0;
+            border: 0;
             outline: none;
             padding: 10px 15px;
             margin: 0 auto;
             border-radius: 15px;
             cursor: pointer;
-            transition: .3s;
-            @include mediaPc(){
-            &:hover{
-                transform: translateY(3px);
-                box-shadow: 0 0 ;
-            }
+            transition: 0.3s;
+            @include mediaPc() {
+                &:hover {
+                    transform: translateY(3px);
+                    box-shadow: 0 0;
+                }
             }
         }
     }
-    .passwordList{
-        li{
-            input{
+    .passwordList {
+        li {
+            input {
                 font-size: 20px;
                 padding: 7px;
             }

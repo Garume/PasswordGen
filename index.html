@@ -8,6 +8,7 @@
     <title>パスワード生成</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="style.min.css">
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -20,6 +21,17 @@
         <form name="inputs" class="inputs">
             <dl>
                 <dt>
+                    パスワードを構成する文字
+                </dt>
+                <dd>
+                    <input type="checkbox" id= "includeNumber" checked>
+                    <label for="includeNumber">数字</label>
+                    <input type="checkbox" id= "includeEnglishLower" checked>
+                    <label for="includeEnglishLower">英小文字</label>
+                    <input type="checkbox" id= "includeEnglishUpper" checked>
+                    <label for="includeEnglishUpper">英大文字</label>
+                </dd>
+                <dt>
                     除外する文字 (半角カンマ区切り)
                 </dt>
                 <dd>
@@ -29,6 +41,16 @@
             <button id="generateButton">パスワードを生成する</button>
         </form>
         <ul class="passwordList" id="passwordList"></ul>
+        <div id="modal-1" aria-hidden="true">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+              <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title" >
+                <div id="modal-1-content">
+                    <p>パスワードを構成する文字が一つもありません！！</p>
+                    <button class="modal__close" aria-label="Close modal" data-micromodal-close>もどる</button>
+                </div>
+              </div>
+            </div>
+        </div>
     </main>
 </body>
 
