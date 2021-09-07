@@ -1,18 +1,30 @@
 const passwordListElement = document.getElementById('passwordList')
+const passwordTexts = [],
+    passwordLength = 6,
+    generateNumberOfTimes = 3;
 
-document.getElementById('generateButton').addEventListener('click',e =>{
+for (let i = 0; i < 26; i++) {
+    passwordTexts.push(String.fromCharCode('a'.charCodeAt(0) + i));
+    passwordTexts.push(String.fromCharCode('A'.charCodeAt(0) + i));
+}
+for (let index = 0; index < 10; index++) {
+    passwordTexts.push(index);
+}
+console.log(passwordTexts);
+
+document.getElementById('generateButton').addEventListener('click', e => {
     e.preventDefault();
 
     passwordListElement.innerHTML = '';
-
-    const passwordLength = 6;
-    let passwords = '';
-    for (let index = 0; index < passwordLength; index++) {
-        passwords += Math.floor(Math.random() * 10);
+    for (let index = 0; index < generateNumberOfTimes; index++) {
+        let passwords = '';
+        for (let index = 0; index < passwordLength; index++) {
+            passwords += passwordTexts[Math.floor(Math.random() * passwordTexts.length)];
+        }
+        const li = document.createElement('li'),
+            input = document.createElement('input');
+        input.value = passwords;
+        li.appendChild(input);
+        passwordListElement.appendChild(li);
     }
-    const li = document.createElement('li'),
-        input = document.createElement('input');
-    input.value = passwords;
-    li.appendChild(input);
-    passwordListElement.appendChild(li);
 })
