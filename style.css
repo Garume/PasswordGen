@@ -21,6 +21,14 @@ a {
   display: block;
 }
 
+#modal-2 {
+  display: none;
+}
+
+#modal-2.is-open {
+  display: block;
+}
+
 .modal__overlay {
   position: fixed;
   top: 0;
@@ -44,6 +52,7 @@ a {
   border-radius: 4px;
   overflow-y: auto;
   box-sizing: border-box;
+  font-weight: bold;
 }
 
 .modal__close {
@@ -99,6 +108,10 @@ main .inputs dl dd input {
   padding: 7px;
 }
 
+main .inputs dl dd input[type="number"] {
+  min-width: 100px;
+}
+
 main .inputs button {
   display: block;
   color: #fff;
@@ -120,6 +133,28 @@ main .inputs button {
     transform: translateY(3px);
     box-shadow: 0 0;
   }
+}
+
+main .passwordList {
+  counter-reset: passwordNumber 0;
+}
+
+main .passwordList li {
+  position: relative;
+  padding-left: 2.5em;
+}
+
+main .passwordList li:not(:first-of-type) {
+  margin-top: 10px;
+}
+
+main .passwordList li::before {
+  counter-increment: passwordNumber 1;
+  content: counter(passwordNumber);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
 }
 
 main .passwordList li input {
