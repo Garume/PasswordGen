@@ -29,6 +29,19 @@ a {
   display: block;
 }
 
+#modal-3 {
+  display: none;
+}
+
+#modal-3.is-open {
+  display: block;
+}
+
+#modal-3-content header {
+  padding-bottom: 10px;
+  font-size: 300%;
+}
+
 .modal__overlay {
   position: fixed;
   top: 0;
@@ -96,10 +109,15 @@ main .inputs dl dt {
 }
 
 main .inputs dl dt:not(:first-of-type) {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
-main .inputs dl dd label:not(:last-of-type) {
+main .inputs dl dd ul {
+  display: flex;
+  align-items: center;
+}
+
+main .inputs dl dd ul li:not(:last-of-type) {
   margin-right: 30px;
 }
 
@@ -122,7 +140,7 @@ main .inputs button {
   border: 0;
   outline: none;
   padding: 10px 15px;
-  margin: 0 auto;
+  margin: 50px auto 0;
   border-radius: 15px;
   cursor: pointer;
   transition: 0.3s;
@@ -137,6 +155,9 @@ main .inputs button {
 
 main .passwordList {
   counter-reset: passwordNumber 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 main .passwordList li {
@@ -160,4 +181,42 @@ main .passwordList li::before {
 main .passwordList li input {
   font-size: 20px;
   padding: 7px;
+}
+
+main .passwordList li .copyButton {
+  padding: 10px;
+  color: #16f;
+  border: 2px solid #16f;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 769px) {
+  main .passwordList li .copyButton {
+    transition: 0.3s;
+  }
+  main .passwordList li .copyButton:hover {
+    opacity: 0.5;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    margin: 0 auto;
+  }
+  main .inputs dl dt {
+    line-height: 1.4;
+  }
+  main .inputs dl dd ul {
+    display: block;
+  }
+  main .inputs dl dd ul li:not(:last-of-type) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  main .passwordList li input {
+    width: 120px;
+  }
 }

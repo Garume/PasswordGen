@@ -61,9 +61,29 @@ document.getElementById('generateButton').addEventListener('click', e => {
                     passwords += excludePasswordTexts[Math.floor(Math.random() * excludePasswordTexts.length)];
                 }
                 const li = document.createElement('li'),
-                    input = document.createElement('input');
+                    input = document.createElement('input'),
+                    copyButton = document.createElement('a');
                 input.value = passwords;
                 li.appendChild(input);
+
+                copyButton.textContent = "コピーする";
+                copyButton.classList.add('copyButton');
+
+                copyButton.addEventListener('click',()=>{
+                    const textarea = document.createElement('textarea');
+                    textarea.textContent = passwords;
+
+                    const body = document.querySelector('body');
+                    body.appendChild(textarea);
+
+                    textarea.select();
+                    document.execCommand("copy");
+
+                    body.removeChild(textarea);
+                    MicroModal.show('modal-3');
+                    document.getElementById('modal-3-content').children[0].textContent = passwords;
+                })
+                li.appendChild(copyButton);
                 passwordListElement.appendChild(li);
             }
         }
