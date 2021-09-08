@@ -7,13 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>パスワード生成</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="./css/loading.min.css">
+    <link rel="stylesheet" href="./css/style.min.css">
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="./js/script.js" defer></script>
+    <script src="./js/loading.js" defer></script>
+    <script src="./js/loadingmanage.js" defer></script>
 </head>
 
 <body>
-    <main>
+    <div id="wrapper" class="active">
+        <canvas id="c"></canvas>
+    </div>
+    <main id="main" class="active">
         <h1>
             パスワード生成ツール
         </h1>

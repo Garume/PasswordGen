@@ -6,6 +6,9 @@
 
 body {
   color: #333;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -80,11 +83,26 @@ a {
   color: white;
 }
 
+main.active {
+  opacity: 0;
+  visibility: hidden;
+}
+
 main {
+  background-color: #fff;
   max-width: 1000px;
   width: 100%;
   margin: 50px auto;
   padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s;
 }
 
 main h1 {

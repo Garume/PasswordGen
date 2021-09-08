@@ -26,6 +26,9 @@ $breakPoint: 768px;
 
 body {
     color: #333;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -92,15 +95,32 @@ a {
     background: #4caf50;
     color: white;
 }
+
+main.active{
+    opacity: 0;
+    visibility: hidden;
+}
 main {
+    background-color: #fff;
     max-width: 1000px;
     width: 100%;
     margin: 50px auto;
     padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s;
+
     h1 {
         font-size: 30px;
         font-weight: bold;
         margin-bottom: 0.5em;
+
     }
 
     .inputs {
